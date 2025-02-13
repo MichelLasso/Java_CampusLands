@@ -216,7 +216,7 @@ public class Campus {
                         }
                     } else if (opcion.equals("coordinador")) {
                         boolean sesionCoordinador = true;
-                        while (sesionCoordinador=true) {
+                        while (sesionCoordinador) {
                             System.out.println("----");
                             System.out.println("BIENVENIDO COORDINADOR");
                             System.out.println("----");
@@ -228,7 +228,7 @@ public class Campus {
                             String contrasena = scanner.nextLine();
 
                             boolean bucleCoordinador = true;
-                            while (bucleCoordinador=true) {
+                            while (bucleCoordinador) {
                                 for (coordinador i : listCoordi) {
                                     if (i.id==usuario && i.contrasena.equals(contrasena)) {
 
@@ -236,7 +236,7 @@ public class Campus {
                                         System.out.println("1. Inscribir campers");
                                         System.out.println("2. Registrar notas");
                                         System.out.println("3. Eliminar Trainers");
-                                        System.out.println("4. Cerrar sesión");
+                                        System.out.println("4. Finalizar");
                                         int respuestaUsusuario= scanner.nextInt();
 
                                         if (respuestaUsusuario==1) {
@@ -296,20 +296,19 @@ public class Campus {
                                                 
                                                 System.out.println("Campers inscritos");
                                                 System.out.println("-----");
-                                                int contador=1;
+                                                
                                                 for (inscritos ins : listInscritos) {
-                                                    System.out.println(ins.estudianteNombre + "" + ins.estudianteApellido);
+                                                    System.out.println(ins.estudianteNombre + "" + ins.estudianteApellido + ins.estudianteIdentificacion);
                                                 }
                                                 System.out.println("-----");
-                                                
+                                                scanner.nextLine();
                                                 System.out.println("Ingrese el nombre del camper que desea revisar: ");
                                                 String nameCamper= scanner.nextLine().toLowerCase();
-                                                
                                                 System.out.println("Ingrese el id del camper");
                                                 int idCamper= scanner.nextInt();
                                                 
                                                 for (inscritos ins : listInscritos) {
-                                                    
+                                                    System.out.println(ins.estudianteIdentificacion);
                                                     if (ins.estudianteNombre.equals(nameCamper) && ins.estudianteIdentificacion== idCamper) {
                                                         System.out.println("Inscrito: "+ins.estudianteNombre + ins.estudianteApellido);
                                                         System.out.println("-----");
@@ -328,6 +327,7 @@ public class Campus {
                                                             if (resultado>=60) {
                                                                 ins.estado=si;
                                                                 listEstudiantes.add(new estudiantes("", ins.estudianteNombre, ins.estudianteApellido, ins.estudianteIdentificacion, ins.direccion, ins.acudiente, ins.telefonoFijo, ins.celular, ins.estado, "", "", "", "", "Activo"));
+                                                                
                                                                 System.out.println("-----");
                                                                 System.out.println("EXAMEN APROBADOO");
                                                                 System.out.println("-----");
@@ -341,7 +341,7 @@ public class Campus {
                                                                         est.nombreSalon=salonCamper;
                                                                     }
                                                                 }
-                                                                
+                                                                System.out.println(listEstudiantes);
                                                             } else {
                                                                 listDesaprobados.add(new desaprobados(ins.estudianteNombre, ins.estudianteApellido, ins.estudianteIdentificacion, ins.direccion, ins.acudiente, ins.telefonoFijo, ins.celular, no, resultado));
                                                                 System.out.println("-----");
@@ -380,21 +380,9 @@ public class Campus {
                                                     System.out.println(listTrainers);
                                                 }
                                              }
-                                                
-                                        }else if(respuestaUsusuario==4){   
-                                            System.out.println("----");
-                                            System.out.println("CERRAR SESION");
-                                            System.out.println("----");
-                                            System.out.println("1. Si");
-                                            System.out.println("2. No");
-
-                                            int sino= scanner.nextInt();
-                                            
-                                            if (sino==1) {
-                                                System.out.println("Cerrando sesion...");
-                                                Thread.sleep(3000);
-                                                salir=false;
-                                            }
+                                        }else if(respuestaUsusuario==4){        
+                                            bucleCoordinador=false;
+                                            sesionCoordinador=false;
                                         }else {
                                             System.out.println("La opcion que ingresaste no existe");
                                         }
@@ -404,7 +392,7 @@ public class Campus {
                     }
                             
                     }
-                }
+            } 
             
         } catch (Exception e) {
             System.out.println("ERROR: Verifique los datos ingresados");
