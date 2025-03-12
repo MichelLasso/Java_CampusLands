@@ -1,6 +1,6 @@
 # Campus Java
 
-En este respositorio encontrarás una carpeta con archivos que se unen para realizar de manera ordenada y efectiva el proyecto. Este proyecto consiste en crear un programa que le permita llevar el seguimiento académico de todos los campers que se encuentran matriculados en el programa intensivo de programación.
+En este respositorio encontrarás una carpeta con archivos y paquetes de JAVA que se unen para realizar de manera ordenada y efectiva el proyecto. Este proyecto consiste en crear un programa que le permita llevar el seguimiento académico de todos los campers que se encuentran matriculados en el programa intensivo de programación.
 
 |Nombre| Función|
 |--|--|
